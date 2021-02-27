@@ -1,17 +1,19 @@
 package ui;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
-	public static final Scanner scNums = new Scanner(System.in);
-	public static final Scanner scStr = new Scanner(System.in);
-	
 	public static double[] ages;
 	public static double average;
 	
-	public static void main(String[] args) {
-		int testCases = scNums.nextInt();
+	public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int testCases = Integer.parseInt(br.readLine());
 		
 		String agesAux;
 		String[] agesStr;
@@ -20,7 +22,7 @@ public class Main {
 		ArrayList<Double> listsAverages = new ArrayList<>();
 		
 		for (int i = 0; i < testCases ;i++) {
-			agesAux = scStr.nextLine();
+			agesAux = br.readLine();
 			agesStr=agesAux.split(" ");
 			ages=new double[agesStr.length];
 			
@@ -33,11 +35,15 @@ public class Main {
 			listsAverages.add(average);
 		}
 		
+		br.close();
+		
 		for(int i=0; i<orderedLists.size(); i++) {
 			String nums="";
+			String space="";
 			
 			for (int j = 0; j < orderedLists.get(i).length; j++) {
-				nums+=" " + orderedLists.get(i)[j];
+				nums+=space + orderedLists.get(i)[j];
+				space=" ";
 			}
 			
 			System.out.println(String.format("%.2f",listsAverages.get(i)) + "-" + nums);
