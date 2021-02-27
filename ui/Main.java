@@ -37,10 +37,10 @@ public class Main {
 			String nums="";
 			
 			for (int j = 0; j < orderedLists.get(i).length; j++) {
-				nums+=" " + orderedLists.get(i)[i];
+				nums+=" " + orderedLists.get(i)[j];
 			}
 			
-			System.out.println(listsAverages.get(i) + "-" + nums);
+			System.out.println(String.format("%.2f",listsAverages.get(i)) + "-" + nums);
 			
 		}
 	}
